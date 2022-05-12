@@ -27,7 +27,7 @@ export default function Home({ allSongsData }) {
         <ul className={utilStyles.list}>
           {allSongsData.map(({ id, artist, title }) => (
             <li className={utilStyles.listItem} key={id}>
-              <Link href={`/chords/${id}`}>
+              <Link href={`/${artist}/${id}`}>
                 <a>
                   {artist}-{title}
                 </a>

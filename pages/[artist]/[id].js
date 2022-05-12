@@ -5,7 +5,7 @@ import { getAllSongIds, getSongData } from "../../utils/songs";
 import Song from "../../components/song"
 
 export const getStaticProps = async ({ params }) => {
-  const songData = await getSongData(params.id);
+  const songData = await getSongData(params.artist, params.id);
   return {
     props: {
       songData,

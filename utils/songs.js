@@ -5,37 +5,46 @@ import matter from "gray-matter";
 const chordsDirectory = path.join(process.cwd(), "chords");
 
 export function getSortedSongsData() {
-  const fileNames = fs.readdirSync(chordsDirectory);
-  const allSongsData = fileNames.map((fileName) => {
-    const id = fileName.replace(/.md$/, "");
-    const fullPath = path.join(chordsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
-    const matterResult = matter(fileContents);
-
-    return {
-      id,
-      ...matterResult.data,
-    };
-  });
-
+  const artists = fs.readdirSync(chordsDirectory);
+  const allSongsData = artists.flatMap(artist => {
+    const artistDirectory = path.join(chordsDirectory, artist)
+    const fileNames = fs.readdirSync(artistDirectory);
+    return fileNames.map((fileName) => {
+      const id = fileName.replace(/.md$/, "");
+      const fullPath = path.join(artistDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, "utf8");
+      const matterResult = matter(fileContents);
+      
+      return {
+        id,
+        ...matterResult.data,
+      };
+    });
+  })
+    
   return allSongsData.sort(({ artist: a }, { artist: b }) => {
     return a < b ? 1 : a > b ? -1 : 0;
   });
 }
 
 export function getAllSongIds() {
-  const fileNames = fs.readdirSync(chordsDirectory);
-  return fileNames.map((fileName) => {
-    return {
-      params: {
-        id: fileName.replace(/\.md$/, ""),
-      },
-    };
-  });
-}
+  const artists = fs.readdirSync(chordsDirectory);
+  return artists.flatMap(artist => {
+    const artistDirectory = path.join(chordsDirectory, artist)
+    const fileNames = fs.readdirSync(artistDirectory);
+    return fileNames.map((fileName) => {
+      return {
+        params: {
+          id: fileName.replace(/\.md$/, ""),
+          artist,
+        },
+      };
+    });
+  })
+  }
 
-export async function getSongData(id) {
-  const fullPath = path.join(chordsDirectory, `${id}.md`);
+export async function getSongData(artist, id) {
+  const fullPath = path.join(chordsDirectory, artist, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
   const matterResult = matter(fileContents);
@@ -43,6 +52,7 @@ export async function getSongData(id) {
   // const song = parseChords(content)
   
   return {
+    artist,
     id,
     content,
     // song,

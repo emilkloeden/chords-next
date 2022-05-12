@@ -75,7 +75,11 @@ addToKnownChords(cSharpChords)
 
 
 // D
-
+knownChords.set("D", addStrings("x-x-0-2-3-2"))
+knownChords.set("Dmaj7", addStrings("x-x-0-2-2-2"))
+knownChords.set("D7", addStrings("x-x-0-2-1-2"))
+knownChords.set("Dm", addStrings("x-x-0-2-3-1"))
+knownChords.set("Dm7", addStrings("x-x-0-2-1-1"))
 
 // Eb
 const eBChords = incrementBarreChords("Eb", fifthStringBarreChords, 5)
