@@ -4,15 +4,15 @@ import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
 
-export const siteTitle = "Chords!";
-export const name = "Chordz!";
+export const siteTitle = "Chords - Next.js!";
+export const name = "Chords!";
 
 export default function Layout({ children, home }) {
   return (
     <div className={styles.container}>
       <Head>
-        <link rel="icon" href="/favicon.ico" /> 
-        <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Space+Mono&display=optional" rel="stylesheet" /> 
+        <link rel="icon" href="/favicon.ico" />
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Space+Mono&display=optional" rel="stylesheet" />
         <meta
           name="description"
           content="Guitar chords webapp built with Next.js"
@@ -27,7 +27,7 @@ export default function Layout({ children, home }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
-        {home ? (
+        {home && (
           <>
             <Image
               priority
@@ -37,27 +37,7 @@ export default function Layout({ children, home }) {
               width={144}
               alt={name}
             />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-          </>
-        ) : (
-          <>
-            <Link href="/">
-              <a>
-                <Image
-                  priority
-                  src="/images/logo.jpg"
-                  className={utilStyles.borderCircle}
-                  height={108}
-                  width={108}
-                  alt={name}
-                />
-              </a>
-            </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
-              </Link>
-            </h2>
+            <h1 className={utilStyles.heading2Xl}>{siteTitle}</h1>
           </>
         )}
       </header>

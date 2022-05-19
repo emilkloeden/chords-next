@@ -14,7 +14,6 @@ export const parseChords = (songText) => {
       return line
     }).join("\n")
     return processed
-    console.log(processed)
   }
 
   export const isChordLine = (line) => {
@@ -71,9 +70,7 @@ function TextLine({line}) {
 }
 
 export default function Song ({song}) {
-    // const songData = parseChords(song)
     return (
-        // <pre>{song}</pre>
         <pre className={songStyles.song}>
             {song.split("\n").map((line, i) => {
                 return isChordLine(line) ? <ChordLine key={i} line={line} /> : <TextLine key={i} line={line} />

@@ -48,5 +48,21 @@
 }
 
 .lightText {
-  color: #666;
+  color: var(--quaternary-color)
+}
+
+/* New functionality for [Verse], [Bridge] etc */
+.block {
+  color: var(--quaternary-color);
+  font-size: 0.7rem;
+  font-style: italic;
+}
+
+/* Additional styles for metadata */
+.metadata {
+  font-size: 0.6rem;
+}
+
+.highlight {
+  color: var(--quaternary-color);
 }

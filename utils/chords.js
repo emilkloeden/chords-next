@@ -50,10 +50,12 @@ knownChords.set("Amaj7", addStrings("x-0-2-1-2-0"));
 knownChords.set("A7", addStrings("x-0-2-0-2-0"));
 knownChords.set("Am", addStrings("x-0-2-2-1-0"));
 knownChords.set("Am7", addStrings("x-0-2-0-1-0"));
+knownChords.set("Am7/G", addStrings("3-0-2-0-1-0")); // Starman
 
 // Bb
 const bFlatChords = incrementBarreChords("Bb", fifthStringBarreChords, 0)
 addToKnownChords(bFlatChords)
+knownChords.set("Bb/A", addStrings("x-0-0-3-3-1")); // Starman
 
 // B
 knownChords.set("B", addStrings("x-2-4-4-4-2"));
@@ -68,6 +70,10 @@ knownChords.set("Cmaj7", addStrings(buildStrings([-1,3,2,0,0,0])))
 knownChords.set("C7", addStrings(buildStrings([-1,3,2,3,1,0])))
 knownChords.set("Cm", addStrings(buildStrings([-1,3,1,0,-1,-1])))
 knownChords.set("Cm7", addStrings(buildStrings([-1,3,1,3,-1,-1])))
+
+// C/G
+knownChords.set("C/G", addStrings(buildStrings([3,3,2,0,1,0])))
+
 
 // C#
 const cSharpChords = incrementBarreChords("C#", fifthStringBarreChords, 3)
@@ -108,6 +114,8 @@ knownChords.set("G7", addStrings(buildStrings([3, 2, 0, 0, 0, 1])))
 knownChords.set("Gm", addStrings(buildStrings([3, 1, 0, 0, 0, 3])))
 knownChords.set("Gm7", addStrings(buildStrings([-1, 1, 3, 0, 3, 0])))
 
-// G#
+// G# & Ab
 const gSharpChords = incrementBarreChords("G#", sixthStringBarreChords, 3)
 addToKnownChords(gSharpChords)
+const aFlat = incrementBarreChords("Ab", sixthStringBarreChords, 3)
+addToKnownChords(aFlat)

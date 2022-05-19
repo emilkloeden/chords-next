@@ -20,7 +20,7 @@ export default function Home({ allSongsData }) {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>A demo app displaying guitar chords</p>
+        <p>A portfolio project displaying guitar chords with finger-positions on-hover.</p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Chords</h2>
@@ -29,7 +29,7 @@ export default function Home({ allSongsData }) {
             <li className={utilStyles.listItem} key={id}>
               <Link href={`/${artist}/${id}`}>
                 <a>
-                  {artist}-{title}
+                  {artist} - {title}
                 </a>
               </Link>
               <br />

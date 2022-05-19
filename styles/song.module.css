@@ -3,12 +3,12 @@
     font-size: 1rem;
 }
 .chord {
-    color: tomato;
+    color: var(--primary-color);
     font-weight: bold;
 
     /* https://blog.logrocket.com/creating-beautiful-tooltips-with-only-css/ */
     position: relative;
-    border-bottom: 1px dashed tomato;
+    border-bottom: 1px dashed var(--primary-color);
 }
 
 .chord:before {
@@ -16,9 +16,13 @@
     position: absolute;
 
     /* vertically center */
-  top:0%;
-  right:0%;
-  transform:translateY(-100%);
+  /* top:0%;
+  right:0%; */
+  /* transform:translateY(-100%); */
+  /* bottom: 100%; */
+  /* left: 50%; */
+  /* margin-left:-50px; */
+  transform:translateY(-50%);
   /* transform:translateX(-50%); */
   
     /* Add above other elements */
@@ -26,16 +30,16 @@
 
   /* move to top */
   /* top:100%; */
-  margin-top:15px; /* and add a small left margin */
+  /* margin-top:15px; and add a small left margin */
   
   /* basic styles */
-  width:150px;
+  width:100px;
   padding:10px;
   border-radius:20px;
-  background:tomato;
-  color: #fff;
+  background:var(--primary-color);
+  color: var(--tertiary-color);
   text-align:center;
-  font-size: 0.8rem;
+  font-size: 0.6rem;
 
   opacity:0; /* hide by default */
   transition: .3s opacity;
