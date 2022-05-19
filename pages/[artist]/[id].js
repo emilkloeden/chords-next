@@ -31,7 +31,7 @@ export default function Chords({ songData }) {
     originalUrl,
     capoFret
   }
-  console.log(songData)
+
   return (
     <Layout>
       <Head>

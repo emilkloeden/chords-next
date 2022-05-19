@@ -34,8 +34,6 @@ export function getSortedSongsData() {
   return allSongsData.sort(({ artist: artistA, title: titleA }, { artist: artistB, title: titleB }) => {
     const a = `${artistA}-${titleA}`
     const b = `${artistB}-${titleB}`
-    console.log(`a: ${a}`)
-    console.log(`b: ${b}`)
     return a < b ? -1 : a > b ? 1 : 0;
   });
 }
